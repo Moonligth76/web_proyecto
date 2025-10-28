@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+  
+  <!-- Barra superior -->
+  <header class="top-bar">
+    <h1>Veterinaria</h1>
+    <div class="user-info">
+      <span>Bienvenido, [Usuario]</span>
+      <a href="index.html" class="logout-link">Cerrar sesión</a>
+    </div>
+  </header>
+
+  <!-- Navegación -->
+  <nav class="nav-bar">
+    <a href="dashboard.html" class="nav-link active">Inicio</a>
+    <a href="mascotas.html" class="nav-link">Mis Mascotas</a>
+    <a href="citas.html" class="nav-link">Citas</a>
+    <a href="historial.html" class="nav-link">Historial</a>
+    <a href="servicios.html" class="nav-link">Servicios</a>
+    <a href="contacto.html" class="nav-link">Contacto</a>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main class="container">
+    
+    <!-- Resumen rápido -->
+    <div class="row">
+      <div class="col">
+        <div class="card" style="text-align: center; background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario)); color: white;">
+          <h3>Mis Mascotas</h3>
+          <p style="font-size: 2rem; font-weight: bold;">3</p>
+          <p>Registradas</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="text-align: center; background: linear-gradient(135deg, var(--verde), #34d399); color: white;">
+          <h3>Próximas Citas</h3>
+          <p style="font-size: 2rem; font-weight: bold;">2</p>
+          <p>Programadas</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="text-align: center; background: linear-gradient(135deg, var(--amarillo), #fbbf24); color: white;">
+          <h3>Recordatorios</h3>
+          <p style="font-size: 2rem; font-weight: bold;">1</p>
+          <p>Pendientes</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Próximas citas -->
+    <section class="card">
+      <div class="card-header">
+        <h2>Próximas Citas</h2>
+        <a href="citas.html" style="color: var(--azul-primario); text-decoration: none;">Ver todas</a>
+      </div>
+      
+      <div class="list">
+        <div class="list-item">
+          <div>
+            <strong>Consulta General - Max</strong>
+            <p class="small">28 OCT 2025 • 10:00 AM • Dr. García</p>
+          </div>
+          <span class="badge badge-warning">Pendiente</span>
+        </div>
+
+        <div class="list-item">
+          <div>
+            <strong>Vacunación - Luna</strong>
+            <p class="small">02 NOV 2025 • 3:00 PM • Dra. Martínez</p>
+          </div>
+          <span class="badge badge-success">Confirmada</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mis mascotas -->
+    <section class="card">
+      <div class="card-header">
+        <h2>Mis Mascotas</h2>
+        <a href="mascotas.html" style="color: var(--azul-primario); text-decoration: none;">Ver todas</a>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <div class="card" style="text-align: center;">
+            <!-- Espacio para imagen de mascota -->
+            <div style="width: 80px; height: 80px; background: var(--azul-claro); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+            
+            </div>
+            <strong>Max</strong>
+            <p class="small">Labrador • 3 años</p>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card" style="text-align: center;">
+            <div style="width: 80px; height: 80px; background: var(--azul-claro); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+            
+            </div>
+            <strong>Luna</strong>
+            <p class="small">Siamés • 2 años</p>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card" style="text-align: center;">
+            <div style="width: 80px; height: 80px; background: var(--azul-claro); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+            
+            </div>
+            <strong>Rocky</strong>
+            <p class="small">Bulldog • 5 años</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Acciones rápidas -->
+    <section class="card">
+      <h2>Acciones Rápidas</h2>
+      <div class="row">
+        <div class="col">
+          <button class="primary" style="width: 100%;" onclick="window.location.href='citas.html'">
+            Agendar Cita
+          </button>
+        </div>
+        <div class="col">
+          <button class="primary" style="width: 100%;" onclick="window.location.href='mascotas.html'">
+            Registrar Mascota
+          </button>
+        </div>
+        <div class="col">
+          <button class="primary" style="width: 100%;" onclick="window.location.href='servicios.html'">
+            Ver Servicios
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

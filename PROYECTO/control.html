@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control Veterinario</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+  
+  <header class="top-bar">
+    <h1>Veterinaria Patitas Felices</h1>
+    <div class="user-info">
+      <span>Bienvenido, Dr. García</span>
+      <a href="index.html" class="logout-link">Cerrar sesión</a>
+    </div>
+  </header>
+
+  <nav class="nav-bar">
+    <a href="dashboard.html" class="nav-link">Inicio</a>
+    <a href="control.html" class="nav-link active">Control Veterinario</a>
+    <a href="citas.html" class="nav-link">Citas del Día</a>
+    <a href="pacientes.html" class="nav-link">Pacientes</a>
+    <a href="inventario.html" class="nav-link">Inventario</a>
+  </nav>
+
+  <main class="container">
+    
+    <!-- Citas del día -->
+    <section class="card">
+      <div class="card-header">
+        <h2>Citas de Hoy</h2>
+        <span class="badge badge-info">5 citas programadas</span>
+      </div>
+      
+      <div class="list">
+        <div class="list-item">
+          <div>
+            <strong>Max - Labrador (3 años)</strong>
+            <p class="small">10:00 AM • Consulta General • Dueño: María González</p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="ghost">Llegó</button>
+            <button class="ghost">Cancelar</button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div>
+            <strong>Luna - Siamés (2 años)</strong>
+            <p class="small">11:30 AM • Vacunación • Dueño: Roberto Sánchez</p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="ghost">Llegó</button>
+            <button class="ghost">Cancelar</button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div>
+            <strong>Rocky - Bulldog (5 años)</strong>
+            <p class="small">3:00 PM • Control Post-operatorio • Dueño: Laura Mendoza</p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="ghost">Llegó</button>
+            <button class="ghost">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consulta en progreso -->
+    <section class="card">
+      <h2>Consulta en Progreso</h2>
+      
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <h3>Información del Paciente</h3>
+            <div class="list">
+              <div class="list-item" style="border: none; padding: 0.5rem 0;">
+                <strong>Nombre:</strong>
+                <span>Max</span>
+              </div>
+              <div class="list-item" style="border: none; padding: 0.5rem 0;">
+                <strong>Especie:</strong>
+                <span>Perro</span>
+              </div>
+              <div class="list-item" style="border: none; padding: 0.5rem 0;">
+                <strong>Raza:</strong>
+                <span>Labrador</span>
+              </div>
+              <div class="list-item" style="border: none; padding: 0.5rem 0;">
+                <strong>Edad:</strong>
+                <span>3 años</span>
+              </div>
+              <div class="list-item" style="border: none; padding: 0.5rem 0;">
+                <strong>Peso:</strong>
+                <span>28 kg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <h3>Registro de Consulta</h3>
+            <form>
+              <label>MOTIVO DE CONSULTA</label>
+              <input type="text" value="Revisión de rutina" readonly>
+
+              <label>SÍNTOMAS O OBSERVACIONES</label>
+              <textarea rows="3">Dueño reporta que come y juega normal. Sin cambios de comportamiento.</textarea>
+
+              <label>DIAGNÓSTICO</label>
+              <textarea rows="2" placeholder="Ingresar diagnóstico..."></textarea>
+
+              <label>TRATAMIENTO</label>
+              <textarea rows="2" placeholder="Prescripción médica..."></textarea>
+
+              <div class="actions">
+                <button type="submit" class="primary">Guardar Consulta</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

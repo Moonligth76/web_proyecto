@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historial - Veterinaria</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+  
+  <header class="top-bar">
+    <h1>Veterinaria</h1>
+    <div class="user-info">
+      <span>Bienvenido, [Usuario]</span>
+      <a href="index.html" class="logout-link">Cerrar sesión</a>
+    </div>
+  </header>
+
+  <nav class="nav-bar">
+    <a href="dashboard.html" class="nav-link">Inicio</a>
+    <a href="mascotas.html" class="nav-link">Mis Mascotas</a>
+    <a href="citas.html" class="nav-link">Citas</a>
+    <a href="historial.html" class="nav-link active">Historial</a>
+    <a href="servicios.html" class="nav-link">Servicios</a>
+    <a href="contacto.html" class="nav-link">Contacto</a>
+  </nav>
+
+  <main class="container">
+    
+    <!-- Filtros -->
+    <section class="card">
+      <h2>Filtrar Historial</h2>
+      <div class="row">
+        <div class="col">
+          <label>MASCOTA</label>
+          <select>
+            <option value="">Todas las mascotas</option>
+            <option value="max">Max</option>
+            <option value="luna">Luna</option>
+            <option value="rocky">Rocky</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>SERVICIO</label>
+          <select>
+            <option value="">Todos los servicios</option>
+            <option value="consulta">Consulta General</option>
+            <option value="vacunacion">Vacunación</option>
+            <option value="estetica">Estética</option>
+            <option value="urgencia">Urgencia</option>
+          </select>
+        </div>
+        <div class="col">
+          <label>FECHA</label>
+          <input type="month">
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" class="primary">Aplicar Filtros</button>
+      </div>
+    </section>
+
+    <!-- Historial completo -->
+    <section class="card">
+      <h2>Historial Completo</h2>
+      
+      <div class="list">
+        <div class="list-item">
+          <div>
+            <strong>Consulta General - Max</strong>
+            <p class="small">15 OCT 2025 • Dr. García</p>
+            <p style="margin-top: 0.5rem; color: var(--gris);">Revisión de rutina, todo en orden. Peso: 28kg</p>
+          </div>
+          <span class="badge badge-success">Completada</span>
+        </div>
+
+        <div class="list-item">
+          <div>
+            <strong>Vacunación Anual - Rocky</strong>
+            <p class="small">08 SEP 2025 • Dra. Martínez</p>
+            <p style="margin-top: 0.5rem; color: var(--gris);">Aplicada vacuna múltiple y antirrábica</p>
+          </div>
+          <span class="badge badge-success">Completada</span>
+        </div>
+
+        <div class="list-item">
+          <div>
+            <strong>Limpieza Dental - Luna</strong>
+            <p class="small">22 AGO 2025 • Dr. García</p>
+            <p style="margin-top: 0.5rem; color: var(--gris);">Limpieza dental completa, sin complicaciones</p>
+          </div>
+          <span class="badge badge-success">Completada</span>
+        </div>
+
+        <div class="list-item">
+          <div>
+            <strong>Estética - Baño y Corte - Max</strong>
+            <p class="small">10 AGO 2025 • Est. Carolina</p>
+            <p style="margin-top: 0.5rem; color: var(--gris);">Baño terapéutico y corte de pelo</p>
+          </div>
+          <span class="badge badge-success">Completada</span>
+        </div>
+
+        <div class="list-item">
+          <div>
+            <strong>Consulta de Control - Luna</strong>
+            <p class="small">25 JUL 2025 • Dra. Martínez</p>
+            <p style="margin-top: 0.5rem; color: var(--gris);">Control post-operatorio, buena recuperación</p>
+          </div>
+          <span class="badge badge-success">Completada</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Descargas -->
+    <section class="card">
+      <h2>Documentos y Recetas</h2>
+      <div class="list">
+        <div class="list-item">
+          <div>
+            <strong>Receta - Max</strong>
+            <p class="small">15 OCT 2025 • Dr. García</p>
+          </div>
+          <button class="ghost">Descargar PDF</button>
+        </div>
+        
+        <div class="list-item">
+          <div>
+            <strong>Certificado de Vacunación - Rocky</strong>
+            <p class="small">08 SEP 2025 • Dra. Martínez</p>
+          </div>
+          <button class="ghost">Descargar PDF</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

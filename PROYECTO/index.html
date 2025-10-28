@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pantalla de Inicio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="auth-body">
+  <section class="panel" aria-labelledby="titulo">
+    <h1 id="titulo">Bienvenido</h1>
+    <p>Inicia sesión para continuar en tu cuenta.<br>
+      Si hay una emergencia, usa el botón rojo en la esquina inferior derecha.</p>
+
+    <button class="primary" onclick="window.location.href='inicio.html'" style="width: 100%; margin-top: 1rem;">
+      INICIAR SESIÓN
+    </button>
+    <p style="margin-top: 1.5rem; font-size: 0.9rem;">
+      ¿No tienes una cuenta?
+      <a href="registro.html" style="color: var(--azul-primario); text-decoration: none; font-weight: 600;">
+        Regístrate aquí
+      </a>
+    </p>
+  </section>
+
+  <!-- Botón de emergencia -->
+  <button id="emergencyBtn" class="boton-emergencia" aria-haspopup="dialog" aria-controls="emergencyModal">
+    🚨 Emergencia
+  </button>
+
+  <!-- Modal de emergencia -->
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal" role="document">
+      <h3 id="modalTitle">Acción de emergencia</h3>
+      <p>Puedes realizar una de las siguientes acciones. Se intentará obtener tu ubicación si das permiso.</p>
+
+      <div class="modal-buttons">
+        <button id="callBtn" class="btn-danger">Llamar al número de emergencia</button>
+        <button id="smsBtn" class="btn-secondary">Enviar SMS con ubicación</button>
+        <button id="mailBtn" class="btn-secondary">Enviar correo con ubicación</button>
+        <button id="cancelBtn" class="btn-cancel">Cancelar</button>
+      </div>
+
+      <p class="small" style="margin-top: 12px; text-align: center;">
+        Número por defecto: <strong id="defaultNumber">614 123 4567</strong> —
+        correo: <strong id="defaultMail">emergencias@example.com</strong>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const EMERGENCY_NUMBER = '614 123 4567';
+    const EMERGENCY_MAIL = 'emergenciasVet@gmail.com';
+
+    const btn = document.getElementById('emergencyBtn');
+    const backdrop = document.getElementById('modalBackdrop');
+    const callBtn = document.getElementById('callBtn');
+    const smsBtn = document.getElementById('smsBtn');
+    const mailBtn = document.getElementById('mailBtn');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const defaultNumberEl = document.getElementById('defaultNumber');
+    const defaultMailEl = document.getElementById('defaultMail');
+
+    defaultNumberEl.textContent = EMERGENCY_NUMBER;
+    defaultMailEl.textContent = EMERGENCY_MAIL;
+
+    // Abrir modal
+    btn.addEventListener('click', () => {
+      backdrop.style.display = 'flex';
+    });
+
+    // Cerrar modal
+    cancelBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeModal();
+    });
+
+    function closeModal() {
+      backdrop.style.display = 'none';
+    }
+
+    // Cerrar con ESC
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && backdrop.style.display === 'flex') closeModal();
+    });
+
+    // Obtener ubicación
+    function getLocation() {
+      return new Promise((resolve, reject) => {
+        if (!navigator.geolocation) {
+          reject(new Error('Geolocalización no soportada'));
+          return;
+        }
+        navigator.geolocation.getCurrentPosition(
+          pos => resolve({ 
+            lat: pos.coords.latitude, 
+            lon: pos.coords.longitude, 
+            accuracy: pos.coords.accuracy 
+          }),
+          err => reject(err),
+          { enableHighAccuracy: true, timeout: 8000 }
+        );
+      });
+    }
+
+    // Llamar
+    callBtn.addEventListener('click', async () => {
+      try {
+        await getLocation();
+      } catch (e) {}
+      window.location.href = `tel:${EMERGENCY_NUMBER}`;
+    });
+
+    // SMS
+    smsBtn.addEventListener('click', async () => {
+      try {
+        const loc = await getLocation();
+        const body = encodeURIComponent(`Ayuda requerida. Ubicación: https://www.openstreetmap.org/?mlat=${loc.lat}&mlon=${loc.lon} (±${loc.accuracy}m)`);
+        window.location.href = `sms:${EMERGENCY_NUMBER}?body=${body}`;
+      } catch (e) {
+        window.location.href = `sms:${EMERGENCY_NUMBER}`;
+      }
+    });
+
+    // Email
+    mailBtn.addEventListener('click', async () => {
+      try {
+        const loc = await getLocation();
+        const subject = encodeURIComponent('Emergencia — Solicito ayuda');
+        const body = encodeURIComponent(`Solicito ayuda. Mi ubicación: https://www.openstreetmap.org/?mlat=${loc.lat}&mlon=${loc.lon} (±${loc.accuracy}m)`);
+        window.location.href = `mailto:${EMERGENCY_MAIL}?subject=${subject}&body=${body}`;
+      } catch (e) {
+        const subject = encodeURIComponent('Emergencia — Solicito ayuda');
+        const body = encodeURIComponent('Solicito ayuda. No se pudo obtener ubicación.');
+        window.location.href = `mailto:${EMERGENCY_MAIL}?subject=${subject}&body=${body}`;
+      }
+    });
+  </script>
+</body>
+</html>

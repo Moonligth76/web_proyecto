@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios - Veterinaria</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+  
+  <header class="top-bar">
+    <h1>Veterinaria Patitas Felices</h1>
+    <div class="user-info">
+      <span>Bienvenido, [Usuario]</span>
+      <a href="index.html" class="logout-link">Cerrar sesión</a>
+    </div>
+  </header>
+
+  <nav class="nav-bar">
+    <a href="dashboard.html" class="nav-link">Inicio</a>
+    <a href="mascotas.html" class="nav-link">Mis Mascotas</a>
+    <a href="citas.html" class="nav-link">Citas</a>
+    <a href="historial.html" class="nav-link">Historial</a>
+    <a href="servicios.html" class="nav-link active">Servicios</a>
+    <a href="contacto.html" class="nav-link">Contacto</a>
+  </nav>
+
+  <main class="container">
+    
+    <!-- Servicios principales -->
+    <section class="card">
+      <h2>Nuestros Servicios</h2>
+      
+      <div class="list">
+        <div class="list-item">
+          <div style="display: flex; align-items: flex-start; gap: 1rem;">
+            <div style="width: 60px; height: 60px; background: var(--azul-claro); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🩺
+            </div>
+            <div>
+              <strong>Consulta General</strong>
+              <p class="small">Revisión completa de salud, diagnóstico y tratamiento de enfermedades comunes.</p>
+              <p style="color: var(--azul-primario); font-weight: 600; margin-top: 0.5rem;">$350 MXN</p>
+            </div>
+          </div>
+          <button class="primary" onclick="window.location.href='citas.html'">Agendar</button>
+        </div>
+
+        <div class="list-item">
+          <div style="display: flex; align-items: flex-start; gap: 1rem;">
+            <div style="width: 60px; height: 60px; background: var(--azul-claro); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              💉
+            </div>
+            <div>
+              <strong>Vacunación</strong>
+              <p class="small">Esquema completo de vacunación para perros y gatos según su edad y necesidades.</p>
+              <p style="color: var(--azul-primario); font-weight: 600; margin-top: 0.5rem;">Desde $250 MXN</p>
+            </div>
+          </div>
+          <button class="primary" onclick="window.location.href='citas.html'">Agendar</button>
+        </div>
+
+        <div class="list-item">
+          <div style="display: flex; align-items: flex-start; gap: 1rem;">
+            <div style="width: 60px; height: 60px; background: var(--azul-claro); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              ✂️
+            </div>
+            <div>
+              <strong>Estética Canina y Felina</strong>
+              <p class="small">Baño terapéutico, corte de pelo, corte de uñas, limpieza dental y más.</p>
+              <p style="color: var(--azul-primario); font-weight: 600; margin-top: 0.5rem;">Desde $400 MXN</p>
+            </div>
+          </div>
+          <button class="primary" onclick="window.location.href='citas.html'">Agendar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios adicionales -->
+    <section class="card">
+      <h2>Servicios Especializados</h2>
+      
+      <div class="row">
+        <div class="col">
+          <div class="card" style="text-align: center; height: 100%;">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🐕‍🦺</div>
+            <strong>Cirugías</strong>
+            <p class="small">Esterilización, castración y procedimientos quirúrgicos menores</p>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card" style="text-align: center; height: 100%;">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🔬</div>
+            <strong>Laboratorio</strong>
+            <p class="small">Análisis clínicos, pruebas de sangre y estudios diagnósticos</p>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card" style="text-align: center; height: 100%;">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">📋</div>
+            <strong>Consultas a Domicilio</strong>
+            <p class="small">Servicio veterinario en la comodidad de tu hogar</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promociones -->
+    <section class="card" style="background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario)); color: white;">
+      <h2 style="color: white;">Promoción del Mes</h2>
+      <div style="text-align: center; padding: 2rem 0;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Paquete de Bienestar Completo</h3>
+        <p style="font-size: 1.2rem; margin-bottom: 1rem;">Consulta general + vacunación anual + baño terapéutico</p>
+        <p style="font-size: 2rem; font-weight: bold;">$800 MXN</p>
+        <p style="text-decoration: line-through; opacity: 0.8;">$1,000 MXN</p>
+        <button class="primary" style="background: white; color: var(--azul-primario); margin-top: 1rem;">
+          Agendar Paquete
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

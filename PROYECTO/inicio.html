@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>INICIO DE SESION</title>
+
+  <style>
+    :root {
+      --fondo: color white;
+      --panel: color white;
+      --texto: color black;
+      --sombra: rgba(0, 0, 0, 0.1);
+      --azul-primario: #1e40af;
+      --borde: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: white;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .panel {
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 6px 20px var(--sombra);
+      text-align: center;
+      max-width: 480px;
+      width: 90%;
+    }
+
+    a {
+      color: black;
+      border-radius: 2px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    label {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #e6edf6;
+      background: #fbfdff;
+      font-size: 15px;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .row .col {
+      flex: 1;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    button.primary {
+      background: var(--accent);
+      color: black;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button.ghost {
+      background: transparent;
+      border: 1px solid #e6edf6;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .small {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+  </style>
+
+</head>
+<body class="auth-body">
+<section class="panel" aria-labelledby="titulo">
+  <h1 id="titulo">INICIO DE SESION</h1>
+
+  <form id="loginForm" onsubmit="handleLogin(event)"></form>
+  <form action="">
+    <label for="nombreUser">USUARIO</label>
+    <input type="text" id="nombreUser" name="nombre" required> <br>
+
+    <label for="pass">CONTRASEÑA</label>
+    <input type="password" id="pass" name="pass" required> <br>
+
+    <div class="row">
+      <label class="col small">
+        <input type="checkbox" id="remember" />
+        <span style="margin-left:8px">Recordarme</span>
+      </label>
+      <a href="#" class="small" style="color: var(--azul-primario);">¿Olvidaste tu contraseña?</a>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="primary">Entrar</button>
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="primary">Crear Cuenta</button>
+    </div>
+
+
+    <p class="footer-note">Al iniciar sesión aceptas los términos del servicio.</p>
+  </form>
+  </aside>
+  </main>
+
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+      // Aquí iría la lógica de autenticación
+      alert("Inicio de sesión exitoso. Redirigiendo...");
+      window.location.href = "dashboard.html";
+    }
+  </script>
+
+  </body>
+
+</html>

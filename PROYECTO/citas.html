@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Citas - Veterinarias</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+  
+  <header class="top-bar">
+    <h1>Veterinaria</h1>
+    <div class="user-info">
+      <span>Bienvenido, [Cliente]</span>
+      <a href="index.html" class="logout-link">Cerrar sesión</a>
+    </div>
+  </header>
+
+  <nav class="nav-bar">
+    <a href="dashboard.html" class="nav-link">Inicio</a>
+    <a href="mascotas.html" class="nav-link">Mis Mascotas</a>
+    <a href="citas.html" class="nav-link active">Mis Citas</a>
+    <a href="historial.html" class="nav-link">Historial</a>
+    <a href="servicios.html" class="nav-link">Servicios</a>
+    <a href="contacto.html" class="nav-link">Contacto</a>
+  </nav>
+
+  <main class="container">
+    
+    <!-- Formulario agendar cita - SOLO PARA CLIENTES -->
+    <section class="card">
+      <h2>Agendar Nueva Cita</h2>
+      <form id="formCita">
+        <label>SELECCIONAR MASCOTA</label>
+        <select required>
+          <option value="">Selecciona una mascota</option>
+          <option value="max">Max - Labrador</option>
+          <option value="luna">Luna - Siamés</option>
+          <option value="rocky">Rocky - Bulldog</option>
+        </select>
+
+        <label>TIPO DE SERVICIO</label>
+        <select required>
+          <option value="">Selecciona un servicio</option>
+          <option value="consulta">Consulta General</option>
+          <option value="vacunacion">Vacunación</option>
+          <option value="estetica">Estética</option>
+          <option value="urgencia">Urgencia</option>
+        </select>
+
+        <div class="row">
+          <div class="col">
+            <label>FECHA DESEADA</label>
+            <input type="date" required min="2024-01-01">
+          </div>
+          <div class="col">
+            <label>HORA PREFERIDA</label>
+            <select required>
+              <option value="">Selecciona hora</option>
+              <option value="09:00">09:00 AM</option>
+              <option value="10:00">10:00 AM</option>
+              <option value="11:00">11:00 AM</option>
+              <option value="12:00">12:00 PM</option>
+              <option value="16:00">04:00 PM</option>
+              <option value="17:00">05:00 PM</option>
+              <option value="18:00">06:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <label>MOTIVO DE LA CONSULTA</label>
+        <textarea rows="3" placeholder="Describe los síntomas o el motivo de la cita..." required></textarea>
+
+        <label>VETERINARIO PREFERIDO (OPCIONAL)</label>
+        <select>
+          <option value="">Cualquier veterinario disponible</option>
+          <option value="garcia">Dr. Carlos García</option>
+          <option value="martinez">Dra. Ana Martínez</option>
+        </select>
+
+        <div class="actions">
+          <button type="button" class="ghost" onclick="limpiarFormulario()">Cancelar</button>
+          <button type="submit" class="primary">Agendar Cita</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Próximas citas del CLIENTE -->
+    <section class="card">
+      <div class="card-header">
+        <h2>Mis Próximas Citas</h2>
+        <span class="badge badge-info" id="contadorCitas">2 programadas</span>
+      </div>
+      
+      <div class="list" id="listaProximasCitas">
+        <div class="list-item">
+          <div>
+            <strong>Consulta General - Max</strong>
+            <p class="small">28 OCT 2025 • 10:00 AM</p>
+            <p class="small">Dr. García • Consultorio 1</p>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+            <span class="badge badge-warning">Pendiente de confirmación</span>
+            <button class="ghost" onclick="editarCita(1)">Reagendar</button>
+            <button class="ghost" style="color: var(--rojo);" onclick="cancelarCita(1)">Cancelar</button>
+          </div>
+        </div>
+
+        <div class="list-item">
+          <div>
+            <strong>Vacunación Anual - Luna</strong>
+            <p class="small">02 NOV 2025 • 3:00 PM</p>
+            <p class="small">Dra. Martínez • Consultorio 2</p>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span class="badge badge-success">Confirmada</span>
+            <button class="ghost" onclick="editarCita(2)">Reagendar</button>
+            <button class="ghost" style="color: var(--rojo);" onclick="cancelarCita(2)">Cancelar</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 1rem;">
+        <button class="ghost" onclick="verTodasLasCitas()">Ver historial completo</button>
+      </div>
+    </section>
+
+    <!-- Recordatorios importantes -->
+    <section class="card" style="background: var(--azul-claro); border-left: 4px solid var(--azul-primario);">
+      <h3>Recordatorios para tu cita</h3>
+      <ul style="color: var(--gris-oscuro); margin-left: 1rem;">
+        <li>Llega 10 minutos antes de tu cita</li>
+        <li>Trae el historial médico de tu mascota si es la primera vez</li>
+        <li>Mantén a tu mascota con correa o en transportadora</li>
+        <li>Cancelaciones con menos de 24 horas pueden tener cargo</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script>
+    function limpiarFormulario() {
+      document.getElementById('formCita').reset();
+    }
+
+    function editarCita(idCita) {
+      alert(`Editando cita #${idCita} - Esta función abriría un formulario de edición`);
+      // Aquí iría la lógica para cargar los datos de la cita en el formulario
+    }
+
+    function cancelarCita(idCita) {
+      if(confirm('¿Estás seguro de que quieres cancelar esta cita?')) {
+        alert(`Cita #${idCita} cancelada - Esta función enviaría la solicitud de cancelación`);
+        // Aquí iría la lógica para cancelar la cita
+      }
+    }
+
+    function verTodasLasCitas() {
+      window.location.href = 'historial.html';
+    }
+
+    // Manejar envío del formulario
+    document.getElementById('formCita').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Cita agendada correctamente. Te contactaremos para confirmar la hora exacta.');
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>

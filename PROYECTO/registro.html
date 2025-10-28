@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Crear cuenta</title>
+  <style>
+    :root {
+      --fondo: white;
+      --panel: white;
+      --texto: black;
+      --sombra: rgba(0,0,0,0.1);
+      --muted: black ;
+      --accent: green;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--fondo);
+      color: var(--texto);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .panel {
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 6px 20px var(--sombra);
+      text-align: center;
+      max-width: 480px;
+      width: 90%;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+    }
+
+    label { font-size: 13px; color: var(--muted); }
+
+    input[type="text"], input[type="password"], input[type="email"] {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #e6edf6;
+      background: #fbfdff;
+      font-size: 15px;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    button.primary {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button.primary:hover {
+      background-color: green;
+    }
+
+    button.ghost {
+      background: transparent;
+      border: 1px solid white;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .small { font-size: 13px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <section class="panel" aria-labelledby="titulo">
+    <h1 id="titulo">Crear cuenta nueva</h1>
+
+    <form id="registerForm" onsubmit="handleRegister(event)">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="usuario">Nombre de usuario</label>
+      <input type="text" id="usuario" name="usuario" required>
+
+      <label for="password">Contraseña</label>
+      <div style="position:relative">
+        <input id="password" name="password" type="password" required />
+        <button type="button" class="ghost" aria-label="Mostrar contraseña"
+                style="position:absolute; right:6px; top:6px;"
+                onclick="togglePassword()">👁</button>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="primary">Registrar</button>
+        <button type="button" class="ghost" onclick="window.location.href='index.html'">Volver</button>
+      </div>
+    </form>
+  </section>
+
+  <script>
+    function togglePassword() {
+      const input = document.getElementById("password");
+      input.type = input.type === "password" ? "text" : "password";
+    }
+
+    function handleRegister(event) {
+      event.preventDefault();
+      alert("Cuenta creada correctamente. Redirigiendo al inicio de sesión...");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
